@@ -1,0 +1,28 @@
+错误信息表明您的推送（push）被拒绝，原因是其中包含了 GitHub 认为是私有的电子邮件地址。GitHub 会阻止将包含私有信息的提交推送到公共仓库。在这里，问题可能是您的 Git 配置文件中的电子邮件地址为私有状态。
+
+您可以通过以下步骤解决这个问题：
+
+检查本地 Git 配置中的电子邮件地址：
+在终端中运行以下命令，检查您的本地 Git 配置文件：
+
+Copy
+git config user.email
+更新本地 Git 配置的电子邮件地址：
+如果配置的电子邮件地址为私有，请将其更改为公共地址。运行以下命令更新：
+
+Copy
+git config user.email "your_public_email@example.com"
+将 "your_public_email@example.com" 替换为您希望公开的电子邮件地址。
+
+提交并推送更改：
+重新提交您的更改，并将其推送到GitHub：
+
+Copy
+git commit --amend --reset-author
+git push -f origin master
+请注意，这会覆盖之前的提交，所以请确保您的更改是正确的。
+
+解决电子邮件地址隐私保护：
+访问 GitHub Email Settings，确认您的电子邮件地址的隐私设置。您可能需要调整设置以允许发布您的电子邮件地址。
+
+上述步骤应该有助于解决由于电子邮件地址隐私设置导致的推送问题。如果问题仍然存在，请检查您的提交历史，确保没有包含其他私人信息。
